@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
-
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
   
-
-  constructor() { }
+  private  url = "http://localhost:8080/products";
+  constructor(private http:HttpClient ) { }
   public getProduct():  Product[] {
     return [
       new Product(1, "Savon Noir", "Permet de guerir les bouton", 3000, 20),
@@ -16,6 +17,9 @@ export class ProductServiceService {
       new Product(1, "Craime a main", "Permet de rentre une peaux douce", 3600, 30),
     ];
 
+  }
+  public getProducts():Observable<any> {
+    return this.http.get(this.url);
   }
  
 

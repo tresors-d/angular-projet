@@ -1,6 +1,37 @@
-<h1> {{title}}</h1>
-<hr/>
-<a href="produit.html">Produit</a>
-<app-product-table></app-product-table>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['']">GESPROD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['home']">Acueil</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['login']">Produits</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <button 
+            class="btn btn-outline-success" 
+            type="submit" 
+            (click)="navigateTo()"
+            ariaCurrentWhenActive="page"
+          >
+            Connexion
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<main>
+    <router-outlet></router-outlet>
+</main>
 
-<router-outlet></router-outlet>
+<nav class="navbar bg-body-tertiary fixed-bottom">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand" href="#">Offcanvas navbar</a>
+    </div>
+</nav>

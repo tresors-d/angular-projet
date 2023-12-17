@@ -7,15 +7,21 @@ import { ProductServiceService } from 'src/app/core/service/product-service.serv
   templateUrl: './product-table.component.html',
   styleUrls: ['./product-table.component.scss']
 })
-
-
 export class ProductTableComponent implements OnInit {
+  title = 'GESTION DES PRODUITS';
   public products: Product[] = [];
   constructor(private productService: ProductServiceService){}
 
   ngOnInit(): void {
-    this.products = this.productService.getProduct();
-    console.log(this.products);
+    this.productService.getProducts().subscribe(
+      (response)=>{
+          this.products = response;
+      },
+      (error) => {
+        console.log(error);        
+          alert("ERROR:"+error)
+      }
+    );
     
   }
 
