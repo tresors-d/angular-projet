@@ -1,15 +1,16 @@
 <div class="container register">
-    <form action="">
+    <form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
+        
         <div class="form-group mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email">
+            <input type="email" formControlName="email" class="form-control" id="exampleFormControlInput1" placeholder="email">
         </div>
         <div class="form-group mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="password">
+            <input type="text" formControlName="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
         </div>
         <div class="form-group row mb-3 p-3">
-            <button type="submit" class="btn btn-success">Connexion</button>
+            <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Connexion</button>
           </div>
     </form>
 </div>

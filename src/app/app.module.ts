@@ -7,6 +7,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { RouterModule } from '@angular/router';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,12 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
+    //httpclientModule est utiliser pour communique avec le backeng;
     HttpClientModule,
+    //pour gerer les formulaire reactif;
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path:'',
